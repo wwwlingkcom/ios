@@ -8,30 +8,41 @@
 import SwiftUI
 
 struct ContentView: View {
-    let foodList = ["面条","米饭","葫芦头"]
-    @State private var selectFood:String?
+    let foodList = Food.examples
+    @State private var selectFood:Food?
     var body: some View {
         VStack (spacing: 20){
             //
             //            Image(systemName: "globe")
             //                    .imageScale(.large)
             //                .foregroundColor(.accentColor)
-            Image("eat")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-        
-                
+            Group{
+                if selectFood != .none{
+                    Text(selectFood!.image)
+                        .font(.system(size: 200))
+                        .minimumScaleFactor(0.1)
+                        .lineLimit(1)
+                }else{
+                    Image("eat")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
+            }.frame(height: 250)
+                .border(.blue)
+            
             Text("今天吃啥？")
                 .bold()
             
             if selectFood != .none{
-                Text(selectFood ?? "")
+                Text(selectFood!.name)
                     .font(.largeTitle)
                     .bold()
                     .foregroundColor(.green)
-                    .id(selectFood)
+                    .id(selectFood!.name)
                     .transition(.asymmetric(insertion: .opacity.animation(.easeInOut(duration: 0.4).delay(0.2)), removal: .opacity.animation(.easeInOut(duration: 0.4))))
             }
+            
+            Spacer()
            
             Button(role: .none){
                 selectFood = foodList.shuffled().filter{$0 != selectFood}.first
@@ -60,7 +71,7 @@ struct ContentView: View {
          */
         .font(.title2)
         .padding()
-        .frame(maxHeight: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.secondarySystemBackground))
         .animation(.easeInOut(duration: 0.5), value: selectFood)
     }
