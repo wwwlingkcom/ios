@@ -10,19 +10,23 @@ import Foundation
 struct Food:Equatable{
     var name:String
     var image:String
+    //热量
     var calorie:Double
+    //碳水
     var carb:Double
+    //脂肪
     var fat:Double
+    //蛋白质
     var protein:Double
     
     static let examples=[
         Food(name: "热狗", image: "🌭", calorie: 12, carb: 16, fat: 17, protein: 11),
-        Food(name: "棒骨", image: "🍖", calorie: 12, carb: 16, fat: 17, protein: 11),
-        Food(name: "汉堡", image: "🍔☕️", calorie: 12, carb: 16, fat: 17, protein: 11),
-        Food(name: "意大利面", image: "🍝", calorie: 12, carb: 16, fat: 17, protein: 11),
-        Food(name: "蔬菜沙拉", image: "🍽️🥗", calorie: 12, carb: 16, fat: 17, protein: 11),
-        Food(name: "油焖大虾", image: "🍤", calorie: 12, carb: 16, fat: 17, protein: 11),
-        Food(name: "饺子", image: "🥟🫖", calorie: 12, carb: 16, fat: 17, protein: 11)
+        Food(name: "棒骨", image: "🍖", calorie: 16, carb: 22, fat: 25, protein: 22),
+        Food(name: "汉堡", image: "🍔☕️", calorie: 14, carb: 33, fat: 22, protein: 45),
+        Food(name: "意大利面", image: "🍝", calorie: 15, carb: 34, fat: 43, protein: 52),
+        Food(name: "蔬菜沙拉", image: "🍽️🥗", calorie: 16, carb: 53, fat: 54, protein: 55),
+        Food(name: "油焖大虾", image: "🍤", calorie: 17, carb: 43, fat: 42, protein: 41),
+        Food(name: "饺子", image: "🥟🫖", calorie: 18, carb: 33, fat: 34, protein: 35)
     ]
     
     
