@@ -7,17 +7,18 @@
 
 import Foundation
 
-struct Food:Equatable{
+
+struct Food:Equatable {
     var name:String
     var image:String
     //热量
-    var calorie:Double
+    @Suffix("大卡") var calorie:Double = .zero
     //碳水
-    var carb:Double
+    @Suffix("g") var carb:Double = .zero
     //脂肪
-    var fat:Double
+    @Suffix("g") var fat:Double = .zero
     //蛋白质
-    var protein:Double
+    @Suffix("g") var protein:Double = .zero
     
     static let examples=[
         Food(name: "热狗", image: "🌭", calorie: 12, carb: 16, fat: 17, protein: 11),

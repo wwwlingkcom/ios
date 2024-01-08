@@ -12,6 +12,8 @@
 		DF6091A52B3F17E600E2760D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF6091A42B3F17E600E2760D /* Assets.xcassets */; };
 		DF6091A82B3F17E600E2760D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF6091A72B3F17E600E2760D /* Preview Assets.xcassets */; };
 		DFAEF2022B45949900730CFC /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAEF2012B45949900730CFC /* Food.swift */; };
+		DFAEF2042B4C45D700730CFC /* ExtensionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAEF2032B4C45D700730CFC /* ExtensionUtils.swift */; };
+		DFAEF2062B4C4B0100730CFC /* SuffixWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAEF2052B4C4B0100730CFC /* SuffixWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		DF6091A42B3F17E600E2760D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF6091A72B3F17E600E2760D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DFAEF2012B45949900730CFC /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		DFAEF2032B4C45D700730CFC /* ExtensionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUtils.swift; sourceTree = "<group>"; };
+		DFAEF2052B4C4B0100730CFC /* SuffixWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuffixWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +58,10 @@
 			isa = PBXGroup;
 			children = (
 				DF6091A02B3F17E500E2760D /* DemoApp.swift */,
-				DFAEF2012B45949900730CFC /* Food.swift */,
 				DF6091A22B3F17E500E2760D /* ContentView.swift */,
+				DFAEF2012B45949900730CFC /* Food.swift */,
+				DFAEF2052B4C4B0100730CFC /* SuffixWrapper.swift */,
+				DFAEF2032B4C45D700730CFC /* ExtensionUtils.swift */,
 				DF6091A42B3F17E600E2760D /* Assets.xcassets */,
 				DF6091A62B3F17E600E2760D /* Preview Content */,
 			);
@@ -141,7 +147,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF6091A32B3F17E500E2760D /* ContentView.swift in Sources */,
+				DFAEF2042B4C45D700730CFC /* ExtensionUtils.swift in Sources */,
 				DF6091A12B3F17E500E2760D /* DemoApp.swift in Sources */,
+				DFAEF2062B4C4B0100730CFC /* SuffixWrapper.swift in Sources */,
 				DFAEF2022B45949900730CFC /* Food.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
