@@ -34,9 +34,10 @@ extension Animation{
     static let myeaseInOut = Animation.easeInOut(duration: 0.5)
 }
 
-extension Color {
-    static let bg = Color(.systemBackground)
-    static let bg2 =  Color(.secondarySystemBackground)
+extension ShapeStyle where Self == Color {
+    static var bg : Color { Color(.systemBackground)}
+    static var bg2 :  Color { Color(.secondarySystemBackground)}
+    static var groupBG :  Color { Color(.systemGroupedBackground)}
 }
 
 extension AnyTransition{

@@ -8,7 +8,8 @@
 import Foundation
 
 
-struct Food:Equatable {
+struct Food:Equatable,Identifiable{
+    let id =  UUID()
     var name:String
     var image:String
     //热量
