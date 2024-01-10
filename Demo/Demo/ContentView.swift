@@ -51,8 +51,8 @@ private extension ContentView {
     
     var foodImage : some View {
         Group{
-            if selectFood != .none{
-                Text(selectFood!.image)
+            if let selectFood {
+                Text(selectFood.image)
                     .font(.system(size: 200))
                     .minimumScaleFactor(0.1)
                     .lineLimit(1)
@@ -116,12 +116,13 @@ private extension ContentView {
      */
     @ViewBuilder var selectFoodInfoView : some View {
 //        Group{
-            if selectFood != .none{
+//            if selectFood != .none{
+            if let selectFood {
                 
                 selectFoodNameView
                 
 //                Text("热量: \(selectFood!.calorie.formatted()) 大卡")
-                Text("热量: \(selectFood!.$calorie) ")
+                Text("热量: \(selectFood.$calorie) ")
                 
                 selectFoodExtendInfoView
                 
