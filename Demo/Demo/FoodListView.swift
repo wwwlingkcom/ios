@@ -13,6 +13,10 @@ struct FoodListView: View {
     @State private var food = Food.examples
     @State private var selectFood = Set<Food.ID>()
     
+    @State private var foodSheetHeight : CGFloat = foodSheetHeightKey.defaultValue
+    
+    @State private var shouldShowSheet : Bool = false
+    
     //列表是否为编辑模式
     private var isEditMode : Bool{editMode?.wrappedValue == .active}
     
@@ -25,20 +29,33 @@ struct FoodListView: View {
             //            Text(food.wrappedValue.name)
             //        }
             List($food, editActions: .all,selection: $selectFood) { $food in
-                Text(food.name).padding()
+                HStack{
+                    Text(food.name).padding()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            if isEditMode {return}
+                            shouldShowSheet = true
+                        }
+                    if isEditMode{
+                        Image(systemName: "pencil")
+                            .font(.title2.bold())
+                            .foregroundColor(.accentColor)
+                    }
+                }
             }
             .listStyle(.plain)
             .padding(.horizontal)
         }
         .background(.groupBG)
         .safeAreaInset(edge: .bottom,content: createDealButton)
-        .sheet(isPresented: .constant(true)) {
+        .sheet(isPresented: $shouldShowSheet) {
             let food = food[1]
-            //如果是辅助模式，或者有两个失误图片的话 使用vstack模式
+            //如果是辅助模式，或者有两个食物图片的话 使用vstack模式
             let shouldVstack = textSize.isAccessibilitySize || food.image.count > 1
             //anylayout使用，根据某个条件分别生产vstack 和 hstack
             AnyLayout.useVstack(if: shouldVstack, spacing: 30){
-                Text(food.image).font(.system(size: 100)).lineLimit(1).minimumScaleFactor(0.5)
+                Text(food.image).font(.system(size: 100)).lineLimit(1).minimumScaleFactor(shouldVstack ? 1 : 0.5)
                 
                 Grid(horizontalSpacing: 30,verticalSpacing: 12){
                     buildSheetView(title: "热量", value: food.$calorie)
@@ -48,7 +65,27 @@ struct FoodListView: View {
                 }
             }
             .padding()
-            .presentationDetents([.medium])
+            .padding(.vertical)
+            .overlay{
+                GeometryReader { proxy in
+                    Color.clear.preference(key: foodSheetHeightKey.self, value: proxy.size.height)
+                }
+            }
+            .onPreferenceChange(foodSheetHeightKey.self){
+                foodSheetHeight = $0
+            }
+            .presentationDetents([.height(foodSheetHeight)])
+        }
+    }
+    
+}
+
+extension FoodListView {
+    
+    struct foodSheetHeightKey : PreferenceKey {
+        static var defaultValue: CGFloat = 300
+        static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+            value = nextValue()
         }
     }
     
